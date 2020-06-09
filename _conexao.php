@@ -260,20 +260,24 @@ class conecta extends config{
        }
        else return false;
     }
-    function checkoutCam($dados,$conexao){
-    if($dados[0]=='Desistencia'){
+    function checkoutCam($dados){
         $id=$dados[2];
+        echo $id;
         $consulta= $this->pdo->prepare("SELECT * FROM caminhao WHERE id= :campo");
         $consulta->bindValue(":campo", $id);
-        if($consulta->execute()){
-        $registro= mysqli_fetch_array($sql);
-        EnviaAlerta($registro );
+        $consulta->execute();
+        $resultado = $consulta->rowCount();  
+        if($resultado>0){ //Se retornar algum registro atualiza
+          $consulta = $this->pdo->prepare("UPDATE caminhao SET status='$dados[0]', saida='$dados[1]' WHERE id= :campo");
+          $consulta->bindValue(":campo", $id);  
+          if($consulta->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        } 
     }
-    if(mysqli_query($conexao, "UPDATE caminhao SET status='$dados[0]', saida='$dados[1]' WHERE id='$dados[2]'")>0){
-        return true;
-    }
-    else{return false;}
-}
     
     
 }

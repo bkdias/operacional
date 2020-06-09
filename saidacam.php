@@ -1,6 +1,5 @@
 <?PHP
    include_once '_conexao.php';
-   include_once 'funcoes.php';
    if(isset($_GET['acao'])=='logout'){
       @session_destroy();
    }
@@ -16,22 +15,7 @@
         })</script>";
      }
     date_default_timezone_set('America/Sao_Paulo');
-if(isset($_POST['search'])){
-$campo = $_POST['consultar'];}
-    $consulta = $conn->buscaCaminhao($campo);
-        if(!$consulta){
-            echo '<script>alert("Veículo/Motorista informado não está no pátio!!")</script>';
-            echo "<script>window.location='consultaccess.php';</script>";
-        }
-        else{
-          foreach($consulta as $resp){
-            $campo=$resp['id']; $data = $resp['data'];$motorista=$resp['motorista']; $cpf=$resp['cpf']; $cnh=$resp['cnh']; $epis=explode(", ", $resp['epi']);$resp['epi']; $catcnh=$resp['catcnh'];
-            $fone=$resp['fone']; $valcnh=$resp['val_cnh']; $transp=$resp['transp']; $placacv=$resp['placacv']; $placac=$resp['placac']; $status=$resp['status'];
-            $cliente=$resp['cliente']; $entradaPatio=$resp['entradaPatio']; $entradaPor=$resp['entradaPor']; $tipocam=$resp['tipocam']; $grade=$resp['grade']; $tam=$resp['tam'];
-            $mopp=$resp['mopp']; $comp=$resp['comp']; $obs=$resp['obs']; $operacao=$resp['operacao']; $pedido=$resp['pedido']; $vendor=$resp['vendor']; $frete=$resp['frete'];
-          }
-        }
-  ?>   
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -42,25 +26,68 @@ $campo = $_POST['consultar'];}
         <script type="text/javascript" src="js/jquery.mask.min.js"></script>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
-<!----------------formatação dos inputs---------------------------------------------->
-        <script type="text/javascript">
-            $("#cpf").mask("'000.000.000-00'");
-            $("#uf").mask("'AA'");
-            $("#tel").mask("'(00) 0 0000-0000 / 0 0000-0000'");
-            $(document).on('keydown', '[data-mask-for-cpf-cnpj]', function (e) {
-                var digit = e.key.replace(/\D/g, '');
-                var value = $(this).val().replace(/\D/g, '');
-                var size = value.concat(digit).length;
-                $(this).mask((size <= 11) ? '000.000.000-00' : '00.000.000/0000-00');
-            });
-            
-        </script>
+        <div class="modal fade" id="myModalPermissao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+              <h5 class="modal-title" id="myModalPermissao">Restrição de Acesso</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Usuário sem permissão para acessar este módulo!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+              <h5 class="modal-title" id="myModalErro">Restrição de Acesso</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Veículo/Motorista informado não está no pátio!!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+<?php
+if(isset($_POST['search'])){
+$campo = $_POST['consultar'];
+    $consulta = $conn->buscaCaminhao($campo);
+        if(!$consulta){
+            echo '<script>$("#myModalErro").modal("show")</script>';
+            echo "<script>$('#myModalErro').on('hidden.bs.modal', function (e) {
+                        window.location='consultaccess.php';
+                })</script>";
+        }
+        else{
+          foreach($consulta as $resp){
+            $id=$resp['id']; $data = $resp['data'];$motorista=$resp['motorista']; $cpf=$resp['cpf']; $cnh=$resp['cnh']; $epis=explode(", ", $resp['epi']);$resp['epi']; $catcnh=$resp['catcnh'];
+            $fone=$resp['fone']; $valcnh=$resp['val_cnh']; $transp=$resp['transp']; $placacv=$resp['placacv']; $placac=$resp['placac']; $status=$resp['status'];
+            $cliente=$resp['cliente']; $entradaPatio=$resp['entradaPatio']; $entradaPor=$resp['entradaPor']; $tipocam=$resp['tipocam']; $grade=$resp['grade']; $tam=$resp['tam'];
+            $mopp=$resp['mopp']; $comp=$resp['comp']; $obs=$resp['obs']; $operacao=$resp['operacao']; $pedido=$resp['pedido']; $vendor=$resp['vendor']; $frete=$resp['frete'];
+          }
+        }
+}
+  ?>   
 <!------------------------------------------------------------------------------------>
      <title>CONTROLE DE ACESSO</title>
     </head>
+    
     <body class="style">
-        
-     <div class="div1">
+      <div class="div1">
         <img class="vertical-align" src="image/yara.png"/>  
         CONTROLE DE MARCAÇÃO<br><br>
       </div>
@@ -159,11 +186,14 @@ $campo = $_POST['consultar'];}
                            </select>
                 </div>
                 <div class="form-group col-md-2">
-                    <label>Status:</label><select name="status" id="status" required class="form-control">
+                    <label>Status:</label><select name="status" id="status" required class="form-control is-invalid">
                                             <option selected=""> </option>
                                             <option value="Concluido">Concluido</option>
                                             <option value="Desistencia">Desistencia</option>
                                            </select>
+                    <div class="invalid-feedback">
+                         Selecione o status
+                    </div>
                 </div>
                  <div class="form-group col-md-2">
                      <label> Nº Pedido:</label> <input type="text" name="pedido" size="12"readonly="readonly" value="<?php echo $pedido?>" required class="form-control"/>
@@ -232,12 +262,11 @@ $campo = $_POST['consultar'];}
                       <input type="reset" name="reset" value="Limpar" class="btn btn-danger"/>
                  </div>
              </div>
+             </form>
           </div>
-                             
-        </form>
-        </div>
-        <div class="footer" >
-              EQUIPE DE TI - 2019                
+      <div  class="footer" >
+            <img class="img-fluid" src="image/copyright.png"/>
+            POWERED BY REBECA SANTANA - 2020             
         </div>
     </body>
 </html>
