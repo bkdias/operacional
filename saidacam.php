@@ -15,6 +15,10 @@
         })</script>";
      }
     date_default_timezone_set('America/Sao_Paulo');
+    $id=''; $data = '';$motorista=''; $cpf=''; $cnh=''; $epis=''; $catcnh='';
+    $fone=''; $valcnh=''; $transp=''; $placacv=''; $placac=''; $status='';
+    $cliente=''; $entradaPatio=''; $entradaPor=''; $tipocam=''; $grade=''; $tam='';
+    $mopp=''; $comp=''; $obs=''; $operacao=''; $pedido=''; $vendor=''; $frete='';
 ?>
 <html>
     <head>

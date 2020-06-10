@@ -267,7 +267,7 @@
                     <label>  Data:</label><input name="data" id="data" type="date" value="<?php echo date('Y-m-d'); ?>" class="form-control"/>
                 </div>
                 <div class="form-group col-md-2">
-                    <label> Entrada Patio:</label><input name="horapatio" id="horapatio" type="time" value="<?php echo date('h:i:s'); ?>"  class="form-control"/>  
+                    <label> Entrada Patio:</label><input name="horapatio" id="horapatio" type="time" value="<?php echo date('H:i'); ?>"  class="form-control"/>  
                 </div>
                 <div class="form-group col-md-2">
                     <label>  Entrada Portaria:</label><input name="horaport" type="time" class="form-control"/>   
