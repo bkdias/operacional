@@ -54,7 +54,7 @@
      <body class="style">
       <div class="div1">
           <img class="vertical-align" class="img-fluid" src="image/yara.png"/>   
-          <h5>CONTROLE DE ENTRADA E SAÍDA PARA CARREGAMENTO</h5><br>
+          <h5>CONTROLE DE ACESSO CAMINHOES</h5><br>
       </div>
          <div class="p1">
          <nav aria-label="breadcrumb">

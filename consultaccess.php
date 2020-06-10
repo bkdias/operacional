@@ -42,7 +42,6 @@ $().ready(function(){
        
         });
       });
-
 </script>
         <title>Gerenciamento de Acesso</title>
     </head>

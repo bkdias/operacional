@@ -87,9 +87,8 @@ $campo = $_POST['consultar'];
 }
   ?>   
 <!------------------------------------------------------------------------------------>
-     <title>CONTROLE DE ACESSO</title>
+     <title>CONTROLE DE ACESSO CAMINHOES</title>
     </head>
-    
     <body class="style">
       <div class="div1">
         <img class="vertical-align" src="image/yara.png"/>  

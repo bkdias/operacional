@@ -1,53 +1,65 @@
 <?PHP
-  include ("_conexao.php");
-  include ("verifica_sessao.php");
-  include ("funcoes.php");
-
-       if(isset($_GET['acao'])=='logout')
-           @session_destroy();
-       if(isset($_REQUEST['search'])){
-          $op = $_REQUEST['opcao'];
-          $campo = $_REQUEST['consultar'];                
-          $dataI = $_REQUEST['dataI'];
-          $dataF = $_REQUEST['dataF'];
-          $stat = $_REQUEST['status'];
-        }
+   include_once '_conexao.php';
+   if(isset($_GET['acao'])=='logout'){
+      @session_destroy();
+   }
+    $conn = new conecta();
+    $conn->verifica_sessao();
+    $login= $_SESSION['login'];
+    $tela=2;
+    $permissao = $conn->verificaPermissao($login, $tela);
+    if(!$permissao){
+       echo '<script>$("#myModalPermissao").modal("show")</script>';
+       echo "<script>$('#myModalPermissao').on('hidden.bs.modal', function (e) {
+                        window.location='index.php';
+        })</script>";
+     }
+    date_default_timezone_set('America/Sao_Paulo');
+    if(isset($_REQUEST['search'])){
+        $op = $_REQUEST['opcao'];
+        $campo = $_REQUEST['consultar'];                
+        $dataI = $_REQUEST['dataI'];
+        $dataF = $_REQUEST['dataF'];
+        $stat = $_REQUEST['status'];
+    }
 ?>
 <html>   
 <head>
-        <link href="css/estilo.css" rel="stylesheet">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/png" href="image/favicon.png"/>
-        <title>Gerenciamento de Acesso</title>
-        <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
-        <script type="text/javascript">
-               //BOTÃO DE CONFIRMAÇÃO PARA EXCLUIR
-            function funcao2($campo){
-               opcao = confirm("Deseja excluir o cadastro selecionado???");
-                if(opcao){
-                    document.forms['altera']['excluir'].value = true;
-                    document.forms['altera']['campo1'].value = $campo;
-                }
-                else {document.forms['altera']['excluir'].value = false;}
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/estilo.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="image/favicon.png"/>
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+           //BOTÃO DE CONFIRMAÇÃO PARA EXCLUIR
+        function funcao2($campo){
+           opcao = confirm("Deseja excluir o cadastro selecionado???");
+            if(opcao){
+                document.forms['altera']['excluir'].value = true;
+                document.forms['altera']['campo1'].value = $campo;
             }
-        </script>
+            else {document.forms['altera']['excluir'].value = false;}
+        }
+    </script>
     </head>
     <body class="style">
       <div class="div1">
-        <img class="vertical-align" src="image/yara.png"/>  
+        <img class="vertical-align" src="image/yara.png"/> 
         CONTROLE DE MARCAÇÃO<br><br>
       </div>
-       <div class="p1">
-            <div class="back"> <p align="left"><a href="acesso.php"><img src="image/voltar.png" title="Voltar"/></a></p></div>
-            <p align="right">
-                <?php echo 'Usuário logado: '.$_SESSION['login'].' / '?>
-                <a href="login.php?acao=logout">Sair</a><br><br>
-            </p>
-            <div class="conteudo1">
-            <p align="center">
-                <strong> REGISTROS DE ENTRADA E SAÍDA DE CAMINHÃO </strong> <br><br></p>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.php">Página Inicial</a></li>
+          <li class="breadcrumb-item"><a href="acesso.php">Controle de Acesso</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Consulta</li>
+          <li class="breadcrumb-item"><a href="login.php?acao=logout">Sair</a></li>
+        </ol>
+      </nav>
+       <div class="container">
+           <center><h5>REGISTROS DE ENTRADA E SAÍDA DE CAMINHÃO</h5> <br><br>
             <center>
             <?php 
              if($op!='periodo'){
