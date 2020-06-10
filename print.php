@@ -10,7 +10,7 @@
             window.onload = window.print();
         </script>
     </head>
-    <body>
+    <body class="estilo">
 <?php
 
 if(isset($_REQUEST['print'])){
@@ -45,35 +45,35 @@ if(isset($_REQUEST['print'])){
    
 }
 
-echo "<center><table border='1' font-size='10px'>";
+echo "<center><table border='1'>";
     echo"<tr><td width='912'><strong><center>YARA BRASIL FERTILIZANTES - UNIDADE CANDEIAS<br>SETOR DE EXPEDIÇÃO - CONTROLE DE ENTRADA PARA CARREGAMENTO</center></strong></tr></td></table>";
     echo "<table border='1'>";
-    echo'<tr><td width="300"><strong>DATA:</strong> '.$data.'</td>'
-     .'<td width="300"><strong>Entrada Patio:</strong> '.$entradaPatio.'</td>'
-     .'<td width="300"><strong>Entrada Portaria:</strong> '.$entradaPor.'</td></tr>'
-     .'<tr><td width="300"><strong>Motorista:</strong> '.$motorista.'</td>'
-     .'<td width="300"><strong>CPF:</strong> '.$cpf.'</td>'
-     .'<td width="300"><strong>CNH:</strong> '.$cnh.'</td></tr>'
-     .'<tr><td width="300"><strong>Valid. CNH:</strong> '.$valcnh.'</td>'
-     .'<td width="300"><strong>Cat. CNH:</strong> '.$catcnh.'</td>'
-     .'<td width="300"><strong>Transp.: </strong> '.$transp.'</td></tr>'
-     .'<tr><td width="300"><strong>Placa Cavalo:</strong> '.$placacv.'</td>'
-     .'<td width="300"><strong>Placa Carreta:</strong> '.$placac.'</td>'
-     .'<td width="300"><strong>Cliente:</strong> '.$cliente.'</td></tr>'
-     .'<tr><td width="300"><strong>MOPP:</strong> '.$mopp.'</td>'
-     .'<td width="300"><strong>Categoria:</strong> '.$tipocam.'</td>'
-     .'<td width="300"><strong>Grade:</strong> '.$grade.'</td></tr>'
-     .'<tr><td width="300"><strong>Comprimento:</strong> '.$comp.'</td>'
-     .'<td width="300"><strong>Tamanho:</strong> '.$tam.'</td>'
-     .'<td width="300"><strong>Status:</strong> '.$status.'</td></tr>'
-     .'<tr><td width="300"><strong>Nº Pedido:</strong> '.$pedido.'</td>'
-     .'<td width="300"><strong>Epis:</strong> '.$epis.'</td>'
-     .'<td width="300"><strong>Tel: </strong> '.$fone.'</td></tr>'
-     .'<tr><td width="300"><strong>Vendor: </strong> '.$vendor.'</td>'
-     .'<td width="300"><strong>Frete: </strong> '.$frete.'</td>'
-     .'<td width="300"><strong>Operação: </strong> '.$operacao.'</td></tr>'
-     .'<tr><td width="300"><strong>Observação: </strong> '.$obs.'</td>'
-     .'<td width="300"><strong>Data/Hora de Saída: </strong> '.$saida.'</td></tr>';
+    echo'<tr><td width="300"><font size="1"><strong>Data:</strong> '.$data.'</td>'
+     .'<td width="300"><font size="1"><strong>Entrada Patio:</strong> '.$entradaPatio.'</td>'
+     .'<td width="300"><font size="1"><strong>Entrada Portaria:</strong> '.$entradaPor.'</td></tr>'
+     .'<tr><td width="300"><font size="1"><font size="1"><strong>Motorista:</strong> '.$motorista.'</td>'
+     .'<td width="300"><font size="1"><strong>CPF:</strong> '.$cpf.'</td>'
+     .'<td width="300"><font size="1"><strong>CNH:</strong> '.$cnh.'</td></tr>'
+     .'<tr><td width="300"><font size="1"><strong>Valid. CNH:</strong> '.$valcnh.'</td>'
+     .'<td width="300"><font size="1"><strong>Cat. CNH:</strong> '.$catcnh.'</td>'
+     .'<td width="300"><font size="1"><strong>Transp.: </strong> '.$transp.'</td></tr>'
+     .'<tr><td width="300"><font size="1"><strong>Placa Cavalo:</strong> '.$placacv.'</td>'
+     .'<td width="300"><font size="1"><strong>Placa Carreta:</strong> '.$placac.'</td>'
+     .'<td width="300"><font size="1"><strong>Cliente:</strong> '.$cliente.'</td></tr>'
+     .'<tr><td width="300"><font size="1"><strong>MOPP:</strong> '.$mopp.'</td>'
+     .'<td width="300"><font size="1"><strong>Categoria:</strong> '.$tipocam.'</td>'
+     .'<td width="300"><font size="1"><strong>Grade:</strong> '.$grade.'</td></tr>'
+     .'<tr><td width="300"><font size="1"><strong>Comprimento:</strong> '.$comp.'</td>'
+     .'<td width="300"><font size="1"><strong>Tamanho:</strong> '.$tam.'</td>'
+     .'<td width="300"><font size="1"><strong>Status:</strong> '.$status.'</td></tr>'
+     .'<tr><td width="300"><font size="1"><strong>Nº Pedido:</strong> '.$pedido.'</td>'
+     .'<td width="300"><font size="1"><strong>Epis:</strong> '.$epis.'</td>'
+     .'<td width="300"><font size="1"><strong>Tel: </strong> '.$fone.'</td></tr>'
+     .'<tr><td width="300"><font size="1"><strong>Vendor: </strong> '.$vendor.'</td>'
+     .'<td width="300"><font size="1"><strong>Frete: </strong> '.$frete.'</td>'
+     .'<td width="300"><font size="1"><strong>Operação: </strong> '.$operacao.'</td></tr>'
+     .'<tr><td width="300"><font size="1"><strong>Observação: </strong> '.$obs.'</td>'
+     .'<td width="300"><font size="1"><strong>Saída: </strong> '.$saida.'</td></tr>';
     echo "</table></center>";
 ?>
     <br><br><center>

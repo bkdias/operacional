@@ -31,7 +31,7 @@
         $(document).ready(function() {
           $('#inputOculto').hide();
           $('#inputOculto2').hide();
-          //$('#inputConsultar').hide();
+          $('#inputConsultar').show();
           $('#opcao').change(function() {
             if($('#opcao').val() == 'cpf'){
                 $("#cpf").mask("'000.000.000-00'");
@@ -85,7 +85,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <select name="opcao" id="opcao" required class="custom-select">
-                      <option selected> </option>
+                      <option value=" " selected> </option>
                       <option value="cpf">CPF</option>
                       <option value="periodo">PERIODO</option>
                       <option value="status">STATUS</option>
@@ -100,7 +100,7 @@
                     </div>
                     <div id="inputOculto2">
                        <select name="status" id="status" class="custom-select">
-                            <option selected> </option>
+                           <option value=" " selected> </option>
                             <option value="Aguardando">AGUARDANDO</option>
                             <option value="Desistencia">DESISTENCIA</option>
                             <option value="Concluido">CONCLUÍDO</option>

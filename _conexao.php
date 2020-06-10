@@ -278,7 +278,18 @@ class conecta extends config{
             }
         } 
     }
-    
+    function buscaCamStatus($campo){
+        $consulta = $this->pdo->prepare("SELECT * FROM caminhao WHERE status= :campo ORDER BY data");
+        $consulta->bindValue(":campo", $campo);
+        $consulta->execute();
+        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+       if($consulta->rowCount()>0){
+           return $resultado;
+       }
+       else {
+           return false;
+       }
+    }
     
 }
 

@@ -50,6 +50,24 @@
           </div>
         </div>
       </div>
+<div class="modal fade" id="myModalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+              <h5 class="modal-title" id="myModalErro">Restrição de Acesso</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Veículo/Motorista informado não está no pátio!!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+    </div>
    </head>
      <body class="style">
       <div class="div1">
@@ -70,8 +88,10 @@
             <?php 
               $consulta = $conn->buscaCaminhao($campo);
                 if(!$consulta){
-                    echo '<script>alert("Veículo/Motorista informado não está no pátio!!")</script>';
-                    echo "<script>window.location='consultaccess.php';</script>";
+                    echo '<script>$("#myModalErro").modal("show")</script>';
+                    echo "<script>$('#myModalErro').on('hidden.bs.modal', function (e) {
+                            window.location='consultaccess.php';
+                         })</script>";
                 }
                 else{
                   foreach($consulta as $resp){

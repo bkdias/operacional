@@ -1,10 +1,13 @@
+.estilo{
+    font-family: sans-serif;
+    font-size: small !important;
+}
 .style{
     background-color: white;
     color: black;
     font-size: 1rem;
     margin: 1px;
     padding-bottom: 80px;
-   
 }
 @media (max-device-aspect-ratio: 480px) {
     .style{font-size: 0.2em; margin: 1px;}

@@ -77,7 +77,7 @@ $().ready(function(){
             </ol>
       </nav>
        <div class="container">
-           <center><h5>BUSCA DE CAMINHÃO</h5><br><br>
+           <center><h5>SAÍDA DE CAMINHÃO</h5><br><br>
                <form name="consultar" action="saidacam.php" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md-3">
