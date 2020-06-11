@@ -14,7 +14,7 @@
 <?php
 
 if(isset($_REQUEST['print'])){
-  $motorista= $_REQUEST['motorista'];
+    $motorista= $_REQUEST['motorista'];
     $cpf= $_REQUEST['cpf'];
     $cnh= $_REQUEST['cnh'];
     $valcnh= $_REQUEST['valcnh'];
