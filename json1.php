@@ -6,7 +6,7 @@ $dbname = "yara";
 
 $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
-function retorna1($cpf, $conn){
+function retorna($cpf, $conn){
     $result = "SELECT * from caminhao WHERE cpf = '$cpf'";
     $resultado = mysqli_query($conn, $result);
     if($resultado->num_rows){
@@ -34,5 +34,5 @@ function retorna1($cpf, $conn){
 }
 if(isset($_GET['cpf'])){
     $cpf = $_GET['cpf'];
-    echo retorna1($cpf, $conn);
+    echo retorna($cpf, $conn);
 }

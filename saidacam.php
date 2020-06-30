@@ -92,7 +92,7 @@ $campo = $_POST['consultar'];
     <body class="style">
       <div class="div1">
         <img class="vertical-align" src="image/yara.png"/>  
-        CONTROLE DE MARCAÇÃO<br><br>
+        <h5> CONTROLE DE MARCAÇÃO</h5><br>
       </div>
       <nav aria-label="breadcrumb">
             <ol class="breadcrumb">

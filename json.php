@@ -27,4 +27,19 @@ if(isset($_GET['cpf_cnpj'])){
     echo retorna($cpf_cnpj, $conn);
 }
 
-
+function retorna1($vendor, $conn){
+    $result = "SELECT * from transportadora WHERE vendor = '$vendor'";
+    $resultado = mysqli_query($conn, $result);
+    if($resultado->num_rows){
+      $row = mysqli_fetch_array($resultado);  
+      $valores['transp'] = $row['transp'];
+      
+    }else{
+        $valores['transp'] = '';
+    }
+    return json_encode($valores);
+}
+if(isset($_GET['vendor'])){
+    $vendor = $_GET['cpf_cnpj'];
+    echo retorna($vendor, $conn);
+}

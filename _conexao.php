@@ -315,5 +315,15 @@ class conecta extends config{
            return false;
         }
     }
+    function deleteAcesso($id){
+        $consulta = $this->pdo->prepare("DELETE FROM caminhao WHERE id= :campo");
+        $consulta->bindValue(":campo", $id);
+        if($consulta->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     
 }

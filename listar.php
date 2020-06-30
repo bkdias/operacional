@@ -36,19 +36,26 @@
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-           //BOTÃO DE CONFIRMAÇÃO PARA EXCLUIR
-        function funcao2($campo){
-           opcao = confirm("Deseja excluir o cadastro selecionado???");
-            if(opcao){
-                document.forms['altera']['excluir'].value = true;
-                document.forms['altera']['campo1'].value = $campo;
+    <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+   
+    <script>
+    $(document).ready(function(){
+	$('a[data-confirm]').click(function(ev){
+            var href = $(this).attr('href');
+            if(!$('#confirm-delete').length){
+                    $('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header bg-danger text-white">EXCLUIR ITEM<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza de que deseja excluir o item selecionado?</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataComfirmOK">Excluir</a></div></div></div></div>');
             }
-            else {document.forms['altera']['excluir'].value = false;}
-        }
+            $('#dataComfirmOK').attr('href', href);
+            $('#confirm-delete').modal({show: true});
+            return false;
+		
+	});
+    });
     </script>
-    </head>
-    <div class="modal fade" id="myModalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    
+</head>
+<div class="modal fade" id="myModalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header bg-danger text-white">
@@ -58,7 +65,7 @@
               </button>
             </div>
             <div class="modal-body">
-              Não existe registros com o status informado!!
+              Não existe registro com o dado informado!!
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -69,7 +76,7 @@
     <body class="style">
       <div class="div1">
         <img class="vertical-align" src="image/yara.png"/> 
-        CONTROLE DE MARCAÇÃO<br><br>
+        <h5>CONTROLE DE MARCAÇÃO</h5><br>
       </div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -134,7 +141,7 @@
                     echo '<table><tr><form name="altera" action="deleteaccess.php" method="post">'
                      .'<input type="hidden" name="excluir">'
                      .'<input type="hidden" name="id">'
-                     .'<td width="100"><center><input type="submit" value="Excluir" name="delete" class="btn btn-danger" onclick="funcao2('.$id.')"></center></td></form>'
+                     .'<td width="100"><center><a href="deleteaccess.php?id='.$id.'" class="btn btn-danger" data-confirm=" " data-dismiss="modal">Excluir</a></center></td></form>'
                      
                      .'<form target="_blank" name="print" action="print.php" method="post">'
                      .'<input type="hidden" value="'.$motorista.'" name="motorista">'
@@ -206,13 +213,14 @@
                  echo "<br><br>";
                 } 
               }
-              }else{  
+              }
+              else{  
               $consulta = $conn->buscaCamCPF($campo);
                 if(!$consulta){
                     echo '<script>$("#myModalErro").modal("show")</script>';
                     echo "<script>$('#myModalErro').on('hidden.bs.modal', function (e) {
                             window.location='listagem.php';
-                        </script>";
+                        })</script>";
                 }
                 else{
                   foreach($consulta as $resp){
@@ -256,7 +264,7 @@
                      echo '<table><tr><form name="altera" action="deleteaccess.php" method="post">'
                      .'<input type="hidden" name="excluir">'
                      .'<input type="hidden" name="campo1">'
-                     .'<td width="100"><center><input type="submit" value="Excluir" name="delete" class="btn btn-danger" onclick="funcao2('.$id.')"></center></td>.</form>'
+                     .'<td width="100"><center><a href="deleteaccess.php?id='.$id.'" class="btn btn-danger" data-confirm=" " data-dismiss="modal">Excluir</a></center></td>.</form>'
                      .'<form target="_blank" name="print" action="print.php" method="post">'
                      .'<input type="hidden" value="'.$motorista.'" name="motorista">'
                      .'<input type="hidden" value="'.$cpf.'" name="cpf">'
@@ -373,7 +381,7 @@
                 echo '<table><tr><form name="altera" action="deleteaccess.php" method="post">'
                      .'<input type="hidden" name="excluir">'
                      .'<input type="hidden" name="campo1">'
-                     .'<td width="100"><center><input type="submit" value="Excluir" name="delete" class="btn btn-danger" onclick="funcao2('.$id.')"></center></td>.</form>'
+                     .'<td width="100"><center><a href="deleteaccess.php?id='.$id.'" class="btn btn-danger btn-sm" data-confirm=" " data-dismiss="modal">Excluir</a></center></td></form>'
                      
                      .'<form target="_blank" name="print" action="print.php" method="post">'
                      .'<input type="hidden" value="'.$motorista.'" name="motorista">'

@@ -4,16 +4,23 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/operacional/saidacam.php</file>
-            <file>file:/C:/xampp/htdocs/operacional/css/estilo.css</file>
+            <file>file:/C:/xampp/htdocs/operacional/editaccess.php</file>
             <file>file:/C:/xampp/htdocs/operacional/_conexao.php</file>
-            <file>file:/C:/xampp/htdocs/operacional/listar.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/print.php</file>
             <file>file:/C:/xampp/htdocs/operacional/listagem.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/motoristablock.php</file>
             <file>file:/C:/xampp/htdocs/operacional/checkout.php</file>
-            <file>file:/C:/xampp/htdocs/operacional/funcoes.php</file>
-            <file>file:/C:/xampp/htdocs/operacional/consultacam.php</file>
-            <file>file:/C:/xampp/htdocs/operacional/consultaccess.php</file>
-            <file>file:/C:/xampp/htdocs/operacional/search.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/json2.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/logalteracad.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/cadaccess.php</file>
             <file>file:/C:/xampp/htdocs/operacional/consulta.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/exclusao.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/listar.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/atualizaccess.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/logatualizacad.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/alteracad.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/deleteaccess.php</file>
+            <file>file:/C:/xampp/htdocs/operacional/consultaccess.php</file>
         </group>
     </open-files>
 </project-private>

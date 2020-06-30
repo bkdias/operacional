@@ -143,6 +143,17 @@
     </div>   
     <body class="style">
         <script>
+        $(document).ready(function(){
+                $("#vendor").blur(function(){
+                    var $transp = $("#transp");
+                    $.getJSON('json2.php',{
+                        vendor: $(this).val()
+                    },function (json){
+                        $transp.val(json.transp);
+                    });
+                });
+                 });</script>
+        <script>
             function pegarDataAtual(){
                     data = new Date();
                     document.getElementById('data').value = data.getDate()+'/0'+(data.getMonth()+1)+'/'+data.getFullYear();
@@ -191,9 +202,8 @@
                     });
                     //pegarDataAtual();
                    });
-                   
-                   });
-                
+                });
+                 
         </script>
      <div class="div1">
           <img class="vertical-align" class="img-fluid" src="image/yara.png"/>   

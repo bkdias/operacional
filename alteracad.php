@@ -17,18 +17,17 @@
       $obs= $_POST['obs'];
       $id= $_POST['id'];
   }
-  
 ?>  
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/estilo.css" rel="stylesheet">
-        <link rel="shortcut icon" type="image/png" href="image/favicon.png"/>
-        <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
-        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/estilo.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="image/favicon.png"/>
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <!----------------formatação dos inputs---------------------------------------------->
         <script type="text/javascript">
             $("#cpf").mask("'000.000.000-00'");
@@ -40,10 +39,6 @@
                 var size = value.concat(digit).length;
                 $(this).mask((size <= 11) ? '000.000.000-00' : '00.000.000/0000-00');
             });
-            
-           
-
-            
         </script>
 <!------------------------------------------------------------------------------------>
      <title>Atendimento ao Cliente</title>
@@ -53,15 +48,14 @@
         <img class="vertical-align" class="img-fluid" src="image/yara.png"/>   
         <h5>ATENDIMENTO AO CLIENTE</h5><br>
       </div>
-       <div class="p1">
-            <nav aria-label="breadcrumb">
+      <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="atend.php">Atendimento</a></li>
                   <li class="breadcrumb-item"><a href="search.php">Consulta</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Alteração</li>
                   <li class="breadcrumb-item"><a href="login.php?acao=logout">Sair</a></li>
                 </ol>
-            </nav>
+       </nav>
             <div class="container">
                 <center><h5>Alteração de Cadastro</h5></center><br>
              <form name="cadastro" method="post" enctype="multipart/form-data">
@@ -102,10 +96,8 @@
                       <a class="btn btn-danger text-white" onClick='window.location="consulta.php?campo=<?php echo $campo?>"'>Cancelar</a>
                   </div>
                   <div class="form-group col-md-4"></div>
-                </div>
-               </div>
-            </form>
-         </div>
+             </form>
+           </div>
        </div>
         <div class="footer" >
               EQUIPE DE TI - 2019                

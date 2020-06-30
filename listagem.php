@@ -93,7 +93,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <div id="inputConsultar">
-                        <input type="text" name="consultar" id="consultar" size="11" maxlength="11" placeholder="palavra-chave" class="form-control" data-mask-for-cpf-cnpj>
+                        <input type="text" name="consultar" id="consultar" size="11" maxlength="14" placeholder="palavra-chave" class="form-control" data-mask-for-cpf-cnpj>
                     </div>
                     <div id="inputOculto">
                         <input type="date" name="dataI" class="form-control"> à <input type="date" name="dataF" class="form-control"/>
